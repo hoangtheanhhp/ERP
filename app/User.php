@@ -32,5 +32,20 @@ class User extends Authenticatable
         'birthday','created_at','deleted_at','updated_at'
     ];
 
-
+    public function absences()
+    {
+        $this->hasMany('App\Absence');
+    }
+    public function reports()
+    {
+        $this->hasMany('App\Report');
+    }
+    public function report_o_ts()
+    {
+        $this->hasMany('App\ReportOT');
+    }
+    public function roll_calls()
+    {
+        $this->hasMany('App\RollCall');
+    }
 }

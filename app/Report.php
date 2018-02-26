@@ -16,4 +16,8 @@ class Report extends Model
         'created_at','update_at','deleted_at','start_time','end_time',
     ];
 
+    public function user()
+    {
+        $this->belongsTo('App\User');
+    }
 }

@@ -16,4 +16,8 @@ class RollCall extends Model
         'deleted_at', 'start_time', 'created_at', 'updated_at',
     ];
 
+    public function user()
+    {
+        $this->belongsTo('App\User');
+    }
 }
