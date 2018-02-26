@@ -14,8 +14,8 @@ class CreateAbsencesTable extends Migration
     public function up()
     {
         Schema::create('absences', function (Blueprint $table) {
-            $table->dateTime('start_time');
-            $table->dateTime('end_time');
+            $table->dateTime('starts_at');
+            $table->dateTime('ends_at');
             $table->integer('user_id');
             $table->text('content');
             $table->increments('id');

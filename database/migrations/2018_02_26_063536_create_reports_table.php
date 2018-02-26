@@ -15,8 +15,8 @@ class CreateReportsTable extends Migration
     {
         Schema::create('reports', function (Blueprint $table) {
             $table->increments('id');
-            $table->dateTime('start_time');
-            $table->dateTime('end_time');
+            $table->dateTime('starts_at');
+            $table->dateTime('ends_at');
             $table->text('content');
             $table->integer('user_id');
             $table->softDeletes();

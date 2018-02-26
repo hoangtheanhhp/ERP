@@ -29,23 +29,23 @@ class User extends Authenticatable
     ];
 
     protected $dates=[
-        'birthday','created_at','deleted_at','updated_at'
+        'birthday','deleted_at',
     ];
 
     public function absences()
     {
-        $this->hasMany('App\Absence');
+        $this->hasMany(Absence::class);
     }
     public function reports()
     {
-        $this->hasMany('App\Report');
+        $this->hasMany(Report::class);
     }
     public function reportOTs()
     {
-        $this->hasMany('App\ReportOT');
+        $this->hasMany(ReportOT::class);
     }
     public function rollCalls()
     {
-        $this->hasMany('App\RollCall');
+        $this->hasMany(RollCall::class);
     }
 }

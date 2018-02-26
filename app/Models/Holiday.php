@@ -9,10 +9,10 @@ class Holiday extends Model
 {
     use SoftDeletes;
     protected $fillable=[
-        'date','content',
+        'holiday','content',
     ];
 
     protected $dates=[
-        'date','created_at','updated_at','deleted_at',
+        'holiday','deleted_at',
     ];
 }

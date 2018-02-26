@@ -5,19 +5,19 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class RollCall extends Model
+class ReportOT extends Model
 {
     use SoftDeletes;
     protected $fillable=[
-        'start_time','user_id',
+        'starts_at','ends_at','content','user_id',
     ];
 
     protected $dates=[
-        'deleted_at', 'start_time', 'created_at', 'updated_at',
+        'deleted_at','starts_at','ends_at',
     ];
 
     public function user()
     {
-        $this->belongsTo('App\User');
+        $this->belongsTo(User::class);
     }
 }
