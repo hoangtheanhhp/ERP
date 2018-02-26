@@ -40,11 +40,11 @@ class User extends Authenticatable
     {
         $this->hasMany('App\Report');
     }
-    public function report_o_ts()
+    public function reportOTs()
     {
         $this->hasMany('App\ReportOT');
     }
-    public function roll_calls()
+    public function rollCalls()
     {
         $this->hasMany('App\RollCall');
     }

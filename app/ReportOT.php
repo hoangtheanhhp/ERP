@@ -13,7 +13,7 @@ class ReportOT extends Model
     ];
 
     protected $dates=[
-        'created_at','update_at','deleted_at','start_time','end_time',
+        'created_at','updated_at','deleted_at','start_time','end_time',
     ];
 
     public function user()
