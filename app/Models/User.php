@@ -31,21 +31,20 @@ class User extends Authenticatable
     protected $dates=[
         'birthday','deleted_at',
     ];
-
     public function absences()
     {
-        $this->hasMany(Absence::class);
+        return $this->hasMany(Absence::class);
     }
     public function reports()
     {
-        $this->hasMany(Report::class);
+        return $this->hasMany(Report::class);
     }
     public function reportOTs()
     {
-        $this->hasMany(ReportOT::class);
+        return $this->hasMany(ReportOT::class);
     }
     public function rollCalls()
     {
-        $this->hasMany(RollCall::class);
+        return $this->hasMany(RollCall::class);
     }
 }

@@ -9,15 +9,15 @@ class RollCall extends Model
 {
     use SoftDeletes;
     protected $fillable=[
-        'starts_at','user_id',
+        'start_time','user_id',
     ];
 
     protected $dates=[
-        'deleted_at', 'starts_at',
+        'deleted_at', 'start_time',
     ];
 
     public function user()
     {
-        $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
 }
