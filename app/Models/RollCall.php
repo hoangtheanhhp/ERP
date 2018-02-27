@@ -9,11 +9,11 @@ class RollCall extends Model
 {
     use SoftDeletes;
     protected $fillable=[
-        'start_time','user_id',
+        'starts_at','user_id',
     ];
 
     protected $dates=[
-        'deleted_at', 'start_time',
+        'deleted_at', 'starts_at',
     ];
 
     public function user()
