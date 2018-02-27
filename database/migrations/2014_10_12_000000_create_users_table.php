@@ -21,8 +21,6 @@ class CreateUsersTable extends Migration
             $table->string('address')->nullable();
             $table->date('birthday');
             $table->string('avatar')->default('default.png');
-            $table->double('salary', 8, 2);
-            $table->double('salary_ot', 8, 2);
             $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();

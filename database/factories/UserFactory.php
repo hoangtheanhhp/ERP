@@ -20,7 +20,5 @@ $factory->define(App\User::class, function (Faker $faker) {
         'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
         'remember_token' => str_random(10),
         'birthday' => $faker->dateTimeBetween('1990-2-2', 'now'),
-        'salary' => 30.0,
-        'salary_ot' =>45.0,
     ];
 });
