@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             ReportsTableSeeder::class,
             RollCallsTableSeeder::class,
+            SalariesTableSeeder::class,
         ]);
     }
 }

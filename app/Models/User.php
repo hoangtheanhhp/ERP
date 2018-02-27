@@ -47,4 +47,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(RollCall::class);
     }
+    public function salary()
+    {
+        return $this->hasOne(Salary::class);
+    }
 }
