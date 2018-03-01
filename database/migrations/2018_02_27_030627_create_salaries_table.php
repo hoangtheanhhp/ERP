@@ -16,10 +16,10 @@ class CreateSalariesTable extends Migration
         Schema::create('salaries', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->double('salary',8,2);
-            $table->double('salary_per_hour',3,1);
-            $table->double('insurance_money',5,2);
-            $table->double('final_payment',8,2);
+            $table->double('salary', 8, 2);
+            $table->double('salary_per_hour', 3, 1);
+            $table->double('insurance_money', 5, 2);
+            $table->double('final_payment', 8, 2);
             $table->timestamps();
         });
     }

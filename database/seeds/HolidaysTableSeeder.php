@@ -11,6 +11,6 @@ class HolidaysTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Holiday::class, 10)->create();
+        factory(\App\Models\Holiday::class, 10)->create();
     }
 }

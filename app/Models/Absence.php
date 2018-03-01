@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -8,12 +8,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Absence extends Model
 {
     use SoftDeletes;
-    protected $fillable=[
-        'starts_at','ends_at','content','user_id',
+    protected $fillable = [
+        'starts_at', 'ends_at', 'content', 'user_id',
     ];
 
-    protected $dates=[
-        'deleted_at','starts_at','ends_at',
+    protected $dates = [
+        'deleted_at', 'starts_at', 'ends_at',
     ];
 
     public function user()

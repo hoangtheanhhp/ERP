@@ -11,6 +11,6 @@ class ReportOTsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\ReportOT::class, 10)->create();
+        factory(\App\Models\ReportOT::class, 10)->create();
     }
 }

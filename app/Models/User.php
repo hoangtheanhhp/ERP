@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -15,8 +15,11 @@ class User extends Authenticatable
      *
      * @var array
      */
+    protected $attributes = [
+        'avatar' => 'default.png',
+    ];
     protected $fillable = [
-        'name', 'email', 'password','birthday','address','avatar',
+        'name', 'email', 'password', 'birthday', 'address', 'avatar',
     ];
 
     /**
@@ -28,25 +31,30 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    protected $dates=[
-        'birthday','deleted_at',
+    protected $dates = [
+        'birthday', 'deleted_at',
     ];
+
     public function absences()
     {
         return $this->hasMany(Absence::class);
     }
+
     public function reports()
     {
         return $this->hasMany(Report::class);
     }
+
     public function reportOTs()
     {
         return $this->hasMany(ReportOT::class);
     }
+
     public function rollCalls()
     {
         return $this->hasMany(RollCall::class);
     }
+
     public function salary()
     {
         return $this->hasOne(Salary::class);
