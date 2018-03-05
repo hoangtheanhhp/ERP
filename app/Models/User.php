@@ -59,4 +59,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Salary::class);
     }
+
+    public function levels()
+    {
+        return $this->belongsToMany(Level::class,'user_levels');
+    }
 }
