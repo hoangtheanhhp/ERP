@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Absence;
-use App\Models\Level;
+use App\Models\Absence;
+use App\Models\Department;
 use App\Models\User;
+use App\Models\UserRole;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -16,8 +17,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $jobs=Level::findOrFail(1)->department->name;
-            dd($jobs);
+
     }
 
     /**
