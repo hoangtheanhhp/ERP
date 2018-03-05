@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('admins.register');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('users','UserController');
