@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Absence;
 use Illuminate\Http\Request;
 
-class User extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
