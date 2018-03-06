@@ -49,11 +49,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-<<<<<<< HEAD
-    | User Providers
-=======
     | UserController Providers
->>>>>>> master
     |--------------------------------------------------------------------------
     |
     | All authentication drivers have a user provider. This defines how the

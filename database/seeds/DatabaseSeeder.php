@@ -11,9 +11,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-<<<<<<< HEAD
-        // $this->call(UsersTableSeeder::class);
-=======
         $this->call([
             AbsencesTableSeeder::class,
             AdminsTableSeeder::class,
@@ -24,6 +21,5 @@ class DatabaseSeeder extends Seeder
             RollCallsTableSeeder::class,
             SalariesTableSeeder::class,
         ]);
->>>>>>> master
     }
 }
