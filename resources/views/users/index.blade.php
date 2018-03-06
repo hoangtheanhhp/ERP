@@ -42,11 +42,14 @@
                                     <td>{{$user->email}}</td>
                                     <td>{{$user->birthday}}</td>
                                     <td>{{$user->address}}</td>
-                                    <td>
+                                    <td class="inline">
                                         <a href="{{route('users.show',$user->id)}}" class="btn btn-success">Show</a>
                                         <a href="{{route('users.edit',$user->id)}}" class="btn btn-warning">Edit</a>
-                                        <a href="#" class="btn btn-danger">Del</a>
-
+                                        <form action="{{route('users.destroy',$user->id)}}" method="POST" class="form-inline">
+                                            {{ csrf_field() }}
+                                            {{ method_field('DELETE') }}
+                                            <button type="submit" class="btn btn-danger">Del</button>
+                                        </form>
                                     </td>
                                 </tr>
                                 @endforeach

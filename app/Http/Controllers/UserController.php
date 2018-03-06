@@ -6,6 +6,7 @@ use App\Http\Requests\NewUserRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Absence;
+use function redirect;
 
 class UserController extends Controller
 {
@@ -44,6 +45,7 @@ class UserController extends Controller
     {
         //
         User::create($request->all());
+        dd($request->errors);
         return redirect()->route('users.index');
     }
 
@@ -93,6 +95,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect()->back();
     }
 }

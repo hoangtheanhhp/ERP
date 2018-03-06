@@ -26,19 +26,29 @@
                         </div>
                         <!-- /.box-header -->
                         <!-- form start -->
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
                         <form role="form" action="{{route('users.store')}}" method="POST">
                             {{ csrf_field() }}
                             <div class="box-body">
-                                <div class="form-group">
+                                <div class="form-group {{$errors->has('name')?'has-error':''}}">
                                     <label for="exampleInputName">Full name</label>
                                     <input type="text" class="form-control" name="name" placeholder="Enter full name">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Email address</label>
+                                    <label for="exampleInputEmail">Email address</label>
                                     <input type="email" class="form-control" name="email" placeholder="Enter email">
                                 </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Password</label>
+                                <div class="form-group{{$errors->has('password')?'has-error':''}}">
+                                    <label for="exampleInputPassword">Password</label>
                                     <input type="password" class="form-control" name="password" placeholder="Password">
                                 </div>
                                 <div class="form-group">
@@ -46,17 +56,17 @@
                                     <input type="password" class="form-control" name="password_confirmation" placeholder="Password">
                                 </div>
 
-                                {{--<div class="form-group" id="locationField">--}}
-                                    {{--<label for="address">Address:</label>--}}
-                                    {{--<input id="autocomplete" class="form-control" placeholder="Enter your address"--}}
-                                           {{--onFocus="geolocate()" type="text">--}}
-                                {{--</div>--}}
-                                {{--<!-- Date -->--}}
-                                {{--<div class="form-group">--}}
-                                    {{--<label>Day of birth</label>--}}
-                                    {{--<input type="text" class="form-control pull-right" id="datepicker">--}}
-                                    {{--<!-- /.input group -->--}}
-                                {{--</div>--}}
+                                <div class="form-group" id="locationField">
+                                    <label for="address">Address:</label>
+                                    <input id="autocomplete" class="form-control" placeholder="Enter your address"
+                                           onFocus="geolocate()" type="text">
+                                </div>
+                                <!-- Date -->
+                                <div class="form-group">
+                                    <label>Day of birth</label>
+                                    <input type="date" name="birthday" class="form-control pull-right" id="datepicker">
+                                    <!-- /.input group -->
+                                </div>
                                 <!-- /.form group -->
 
                             </div>
