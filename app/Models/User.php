@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Carbon\Carbon;
+
 
 class User extends Authenticatable
 {
@@ -34,6 +36,17 @@ class User extends Authenticatable
     protected $dates = [
         'birthday', 'deleted_at',
     ];
+    public function setBirthdayAttribute($date)
+    {
+        $this->attributes['birthday'] = Carbon::createFromFormat('Y-m-d', $date)->format('Y-m-d');
+    }
+
+    //This method automatically fetch date d-m-Y format from database
+
+    public function getBirthdayAttribute($date)
+    {
+        return Carbon::createFromFormat('Y-m-d', $date)->format('d-m-Y');
+    }
 
     public function absences()
     {

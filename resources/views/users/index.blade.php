@@ -9,9 +9,8 @@
                 <small>advanced tables</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="#">Tables</a></li>
-                <li class="active">Data tables</li>
+                <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">List Users</li>
             </ol>
         </section>
 
@@ -33,6 +32,8 @@
                                     <th>Birthday</th>
                                     <th>Address</th>
                                     <th></th>
+                                    <th></th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -42,14 +43,16 @@
                                     <td>{{$user->email}}</td>
                                     <td>{{$user->birthday}}</td>
                                     <td>{{$user->address}}</td>
-                                    <td class="inline">
+                                    <td>
                                         <a href="{{route('users.show',$user->id)}}" class="btn btn-success">Show</a>
+                                    </td>
+                                    <td>
                                         <a href="{{route('users.edit',$user->id)}}" class="btn btn-warning">Edit</a>
-                                        <form action="{{route('users.destroy',$user->id)}}" method="POST" class="form-inline">
-                                            {{ csrf_field() }}
-                                            {{ method_field('DELETE') }}
-                                            <button type="submit" class="btn btn-danger">Del</button>
-                                        </form>
+                                    </td>
+                                    <td>
+                                        {{ Form::open(['method' => 'DELETE', 'route' => ['users.destroy', $user->id]]) }}
+                                        {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
+                                        {{ Form::close() }}
                                     </td>
                                 </tr>
                                 @endforeach
