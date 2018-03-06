@@ -11,6 +11,10 @@
 |
 */
 
+<<<<<<< HEAD
 Broadcast::channel('App.User.{id}', function ($user, $id) {
+=======
+Broadcast::channel('App.UserController.{id}', function ($user, $id) {
+>>>>>>> master
     return (int) $user->id === (int) $id;
 });

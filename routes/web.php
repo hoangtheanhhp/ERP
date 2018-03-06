@@ -12,6 +12,7 @@
 */
 
 Route::get('/', function () {
+<<<<<<< HEAD
     return view('admins.register');
 });
 
@@ -19,3 +20,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('users','UserController');
+=======
+    return view('welcome');
+});
+
+Route::resource('users', 'UserController');
+>>>>>>> master
