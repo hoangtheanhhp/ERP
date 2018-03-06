@@ -17,10 +17,10 @@ class CreateUserRolesTable extends Migration
             $table->increments('id');
             $table->integer('department_id');
             $table->integer('user_id');
-            $table->integer('create');
-            $table->integer('read');
-            $table->integer('update');
-            $table->integer('delete');
+            $table->boolean('create');
+            $table->boolean('read');
+            $table->boolean('update');
+            $table->boolean('delete');
             $table->timestamps();
         });
     }
