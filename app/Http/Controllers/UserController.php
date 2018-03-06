@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\NewUserRequest;
 use Illuminate\Http\Request;
-use App\User;
-use App\Absence;
+use App\Models\User;
+use App\Models\Absence;
 
 class UserController extends Controller
 {

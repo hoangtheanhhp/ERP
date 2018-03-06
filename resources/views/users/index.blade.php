@@ -32,8 +32,7 @@
                                     <th>Email</th>
                                     <th>Birthday</th>
                                     <th>Address</th>
-                                    <th>Engine version</th>
-                                    <th>CSS grade</th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -41,19 +40,24 @@
                                 <tr>
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->email}}</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>{{$user->birthday}}</td>
+                                    <td>{{$user->address}}</td>
+                                    <td>
+                                        <a href="{{route('users.show',$user->id)}}" class="btn btn-success">Show</a>
+                                        <a href="{{route('users.edit',$user->id)}}" class="btn btn-warning">Edit</a>
+                                        <a href="#" class="btn btn-danger">Del</a>
+
+                                    </td>
                                 </tr>
                                 @endforeach
                                 </tbody>
                                 <tfoot>
                                 <tr>
-                                    <th>Rendering engine</th>
-                                    <th>Browser</th>
-                                    <th>Platform(s)</th>
-                                    <th>Engine version</th>
-                                    <th>CSS grade</th>
+                                    <th>Full Name</th>
+                                    <th>Email</th>
+                                    <th>Birthday</th>
+                                    <th>Address</th>
+                                    <th></th>
                                 </tr>
                                 </tfoot>
                             </table>
