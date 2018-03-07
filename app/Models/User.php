@@ -36,10 +36,6 @@ class User extends Authenticatable
     protected $dates = [
         'birthday', 'deleted_at',
     ];
-    public function setBirthdayAttribute($date)
-    {
-        $this->attributes['birthday'] = Carbon::createFromFormat('Y-m-d', $date)->format('Y-m-d');
-    }
 
     //This method automatically fetch date d-m-Y format from database
 
