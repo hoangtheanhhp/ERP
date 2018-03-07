@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\DepartmentRole;
+use App\UserRole;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -67,5 +69,10 @@ class User extends Authenticatable
     public function salary()
     {
         return $this->hasOne(Salary::class);
+    }
+
+    public function departments()
+    {
+        return $this->belongsToMany(Department::class,'user_roles');
     }
 }
