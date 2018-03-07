@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\NewUserRequest;
-use Illuminate\Http\Request;
-use App\Models\User;
 use App\Models\Absence;
+use App\Models\Department;
+use App\Models\User;
+use App\Models\UserRole;
+use Illuminate\Http\Request;
 use function redirect;
 
 class UserController extends Controller
