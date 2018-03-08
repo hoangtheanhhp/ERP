@@ -15,8 +15,6 @@ class CreateReportsTable extends Migration
     {
         Schema::create('reports', function (Blueprint $table) {
             $table->increments('id');
-            $table->dateTime('starts_at');
-            $table->dateTime('ends_at');
             $table->text('today_do');
             $table->text('tomorrow_do');
             $table->text('problems');
