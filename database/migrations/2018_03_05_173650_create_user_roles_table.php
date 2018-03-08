@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReportsTable extends Migration
+class CreateUserRolesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class CreateReportsTable extends Migration
      */
     public function up()
     {
-        Schema::create('reports', function (Blueprint $table) {
+        Schema::create('user_roles', function (Blueprint $table) {
             $table->increments('id');
-            $table->dateTime('starts_at');
-            $table->dateTime('ends_at');
-            $table->text('today_do');
-            $table->text('tomorrow_do');
-            $table->text('problems');
+            $table->integer('department_id');
             $table->integer('user_id');
-            $table->softDeletes();
+            $table->boolean('create');
+            $table->boolean('read');
+            $table->boolean('update');
+            $table->boolean('delete');
             $table->timestamps();
         });
     }
@@ -33,6 +32,6 @@ class CreateReportsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reports');
+        Schema::dropIfExists('user_roles');
     }
 }
