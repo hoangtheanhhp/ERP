@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Report;
 use Carbon\Carbon;
+use function redirect;
+
 class ReportController extends Controller
 {
     /**
@@ -15,9 +17,11 @@ class ReportController extends Controller
     public function index()
     {
         //
-        $reports = Report::orderBy('created_at','DESC')->get();
+        $reportTimes = Report::orderBy('created_at','DESC')->get()->groupBy(function($date) {
+            return Carbon::parse($date->created_at)->format('d-m-Y');
+        });
         $data = [
-            'reports' => $reports,
+            'reportTimes' => $reportTimes,
         ];
         return view('reports.index', $data);
     }
@@ -56,7 +60,11 @@ class ReportController extends Controller
      */
     public function show($id)
     {
-        //
+        $report = Report::findOrFail($id);
+        $data = [
+            'report' => $report,
+        ];
+        return view('reports.show',$data);
     }
 
     /**
@@ -67,7 +75,13 @@ class ReportController extends Controller
      */
     public function edit($id)
     {
-        //
+        $report = Report::findOrFail($id);
+        $timeNow = Carbon::now()->format('d-m-Y');
+        $data = [
+            'timeNow' => $timeNow,
+            'report' => $report,
+        ];
+        return view('reports.edit', $data);
     }
 
     /**
@@ -79,7 +93,7 @@ class ReportController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
@@ -90,6 +104,8 @@ class ReportController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $report = Report::findOrFail($id);
+        $report->delete();
+        return redirect()->route('reports.index');
     }
 }

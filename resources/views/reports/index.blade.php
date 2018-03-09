@@ -21,39 +21,41 @@
                 <div class="col-md-12">
                     <!-- The time line -->
                     <ul class="timeline">
-                        @foreach($reports as $report)
-                        <!-- timeline time label -->
-                        <li class="time-label">
-                          <span class="bg-red">
-                            {{$report->created_at->diffForHumans()}}
-                          </span>
-                        </li>
-                        <!-- /.timeline-label -->
-                        <!-- timeline item -->
-                        <li>
-                            <i class="fa fa-envelope bg-blue"></i>
+                        @foreach($reportTimes as $reports)
+                            <!-- timeline time label -->
+                            <li class="time-label">
+                              <span class="bg-red">
+                                {{$reports[0]->created_at->format('d-m-Y')}}
+                              </span>
+                            </li>
+                            <!-- /.timeline-label -->
+                            @foreach($reports as $report)
+                                <!-- timeline item -->
+                                <li>
+                                    <i class="fa fa-envelope bg-blue"></i>
 
-                            <div class="timeline-item">
-                                <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
+                                    <div class="timeline-item">
+                                        <span class="time"><i class="fa fa-clock-o"></i>{{$report->created_at->format('H:m')}}</span>
 
-                                <h3 class="timeline-header"><a href="#">{{$report->user->name}}</a></h3>
+                                        <h3 class="timeline-header"><a href="#">{{$report->user->name}}</a></h3>
 
-                                <div class="timeline-body">
-                                    <strong>1. Today</strong>
-                                    {{$report->today_do}}
-                                    <strong>2. Tomorrow</strong>
-                                    {{$report->tomorrow_do}}
-                                    <strong>3. Problems</strong>
-                                    {{$report->problems}}
+                                        <div class="timeline-body">
+                                            <h5><strong>1. Today</strong></h5>
+                                            <p>{{$report->today_do}}</p>
+                                            <h5><strong>2. Tomorrow</strong></h5>
+                                            <p>{{$report->tomorrow_do}}</p>
+                                            <h5><strong>3. Problems</strong></h5>
+                                            <p>{{$report->problems}}</p>
 
-                                </div>
-                                <div class="timeline-footer">
-                                    <a class="btn btn-primary btn-xs">Detail</a>
-                                </div>
-                            </div>
-                        </li>
-                        <!-- END timeline item -->
-                        <!-- timeline item -->
+                                        </div>
+                                        <div class="timeline-footer">
+                                            <a href="{{route('reports.show',$report->id)}}" class="btn btn-primary btn-xs">Detail</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- END timeline item -->
+                                <!-- timeline item -->
+                            @endforeach
                             @endforeach
                      </ul>
                 </div>
