@@ -1,6 +1,8 @@
 /node_modules
 /public/hot
 /public/storage
+/public/documentation
+/public/pages
 /storage/*.key
 /vendor
 /.idea
@@ -12,3 +14,4 @@ npm-debug.log
 yarn-error.log
 .env
 phpcs.xml
+
