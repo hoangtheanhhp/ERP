@@ -17,4 +17,4 @@ Auth::routes();
 Route::resource('users','UserController');
 Route::resource('reports','ReportController');
 Route::resource('absences','AbsenceController');
-
+Route::resource('reportots','ReportOTController');
