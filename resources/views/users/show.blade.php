@@ -327,7 +327,6 @@
                                 </ul>
                             </div>
                             <!-- /.tab-pane -->
-
                             <div class="tab-pane" id="edit">
                                 <form class="form-horizontal"
                                       action="{{ route('users.update',['id'=>$user->id]) }} "

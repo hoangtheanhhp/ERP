@@ -95,7 +95,7 @@
                                         <strong>{{ $errors->first('birthday') }}</strong>
                                     </span>
                                 @endif
-                                    <!-- /.input group -->
+                                <!-- /.input group -->
                                 </div>
                                 <!-- /.form group -->
                             </div>

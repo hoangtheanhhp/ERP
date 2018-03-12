@@ -13,8 +13,4 @@
         <exclude-pattern>./tests</exclude-pattern>
         <exclude-pattern>./database</exclude-pattern>
     </rule>
-    <!-- Ignore line length limited because route's name can be long that exceed 120 characters -->
-    <rule ref="Generic.Files.LineLength">
-        <exclude-pattern>./routes</exclude-pattern>
-    </rule>
 </ruleset>
