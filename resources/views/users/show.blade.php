@@ -339,11 +339,11 @@
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" id="name" name="name"
                                                    placeholder="{{ $user->name }}">
-                                        @if ($errors->has('name'))
-                                            <span class="has-feedback text-center">
+                                            @if ($errors->has('name'))
+                                                <span class="has-feedback text-center">
                                             <strong>{{ $errors->first('name') }}</p>
                                             </span>
-                                        @endif
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="form-group {{  $errors->has('email') ? 'has-error' : ''}}">
@@ -354,7 +354,7 @@
                                                    placeholder="{{ $user->email }}">
                                             @if ($errors->has('email'))
                                                 <span class="has-feedback">
-                                                <strong >{{$errors->first('email') }}</strong>
+                                                <strong>{{$errors->first('email') }}</strong>
                                                 </span>
                                             @endif
                                         </div>

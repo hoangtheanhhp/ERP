@@ -54,15 +54,21 @@
                                     </li>
                                 @endif
                                 @if( $user_role->read == 1)
-                                    <li><a href="{{ route('users.department.read',['id'=>$user_role->department_id]) }}"><i class="fa fa-circle-o"></i> Read</a>
+                                    <li>
+                                        <a href="{{ route('users.department.read',['id'=>$user_role->department_id]) }}"><i
+                                                    class="fa fa-circle-o"></i> Read</a>
                                     </li>
                                 @endif
                                 @if( $user_role->update ==1)
-                                    <li><a href="{{ route('users.department.update',['id'=>$user_role->department_id]) }}"><i class="fa fa-circle-o"></i> Update</a>
+                                    <li>
+                                        <a href="{{ route('users.department.update',['id'=>$user_role->department_id]) }}"><i
+                                                    class="fa fa-circle-o"></i> Update</a>
                                     </li>
                                 @endif
                                 @if( $user_role->delete ==1)
-                                    <li><a href="{{ route('users.department.delete',['id'=>$user_role->department_id]) }}"><i class="fa fa-circle-o"></i> Delete</a>
+                                    <li>
+                                        <a href="{{ route('users.department.delete',['id'=>$user_role->department_id]) }}"><i
+                                                    class="fa fa-circle-o"></i> Delete</a>
                                     </li>
                                 @endif
                             </ul>
@@ -90,8 +96,8 @@
                 <a href="../widgets.html">
                     <i class="fa fa-th"></i> <span>Widgets</span>
                     <span class="pull-right-container">
-              <small class="label pull-right bg-green">new</small>
-            </span>
+                    <small class="label pull-right bg-green">new</small>
+                     </span>
                 </a>
             </li>
             <li class="treeview">

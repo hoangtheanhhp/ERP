@@ -32,7 +32,8 @@
                                 <li><!-- start message -->
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                            <img src="../../dist/img/user2-160x160.jpg" class="img-circle"
+                                                 alt="User Image">
                                         </div>
                                         <h4>
                                             Support Team
@@ -45,7 +46,8 @@
                                 <li>
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="../../dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                                            <img src="../../dist/img/user3-128x128.jpg" class="img-circle"
+                                                 alt="User Image">
                                         </div>
                                         <h4>
                                             AdminLTE Design Team
@@ -57,7 +59,8 @@
                                 <li>
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="../../dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                                            <img src="../../dist/img/user4-128x128.jpg" class="img-circle"
+                                                 alt="User Image">
                                         </div>
                                         <h4>
                                             Developers
@@ -69,7 +72,8 @@
                                 <li>
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="../../dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                                            <img src="../../dist/img/user3-128x128.jpg" class="img-circle"
+                                                 alt="User Image">
                                         </div>
                                         <h4>
                                             Sales Department
@@ -81,7 +85,8 @@
                                 <li>
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="../../dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                                            <img src="../../dist/img/user4-128x128.jpg" class="img-circle"
+                                                 alt="User Image">
                                         </div>
                                         <h4>
                                             Reviewers
@@ -113,7 +118,8 @@
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the
+                                        <i class="fa fa-warning text-yellow"></i> Very long description here that may
+                                        not fit into the
                                         page and may cause design problems
                                     </a>
                                 </li>
@@ -156,7 +162,8 @@
                                             <small class="pull-right">20%</small>
                                         </h3>
                                         <div class="progress xs">
-                                            <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar"
+                                            <div class="progress-bar progress-bar-aqua" style="width: 20%"
+                                                 role="progressbar"
                                                  aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
                                                 <span class="sr-only">20% Complete</span>
                                             </div>
@@ -171,7 +178,8 @@
                                             <small class="pull-right">40%</small>
                                         </h3>
                                         <div class="progress xs">
-                                            <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar"
+                                            <div class="progress-bar progress-bar-green" style="width: 40%"
+                                                 role="progressbar"
                                                  aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
                                                 <span class="sr-only">40% Complete</span>
                                             </div>
@@ -186,7 +194,8 @@
                                             <small class="pull-right">60%</small>
                                         </h3>
                                         <div class="progress xs">
-                                            <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar"
+                                            <div class="progress-bar progress-bar-red" style="width: 60%"
+                                                 role="progressbar"
                                                  aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
                                                 <span class="sr-only">60% Complete</span>
                                             </div>
@@ -201,7 +210,8 @@
                                             <small class="pull-right">80%</small>
                                         </h3>
                                         <div class="progress xs">
-                                            <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar"
+                                            <div class="progress-bar progress-bar-yellow" style="width: 80%"
+                                                 role="progressbar"
                                                  aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
                                                 <span class="sr-only">80% Complete</span>
                                             </div>
