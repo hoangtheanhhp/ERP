@@ -9,11 +9,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Carbon\Carbon;
 
-
 class User extends Authenticatable
 {
     use Notifiable;
+
     use SoftDeletes;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -73,6 +74,6 @@ class User extends Authenticatable
 
     public function departments()
     {
-        return $this->belongsToMany(Department::class,'user_roles');
+        return $this->belongsToMany(Department::class, 'user_roles');
     }
 }

@@ -21,21 +21,22 @@
                 <div class="col-md-12">
                     <!-- The time line -->
                     <ul class="timeline">
-                        @foreach($reportTimes as $reports)
-                            <!-- timeline time label -->
+                    @foreach($reportTimes as $reports)
+                        <!-- timeline time label -->
                             <li class="time-label">
                               <span class="bg-red">
                                 {{$reports[0]->created_at->format('d-m-Y')}}
                               </span>
                             </li>
                             <!-- /.timeline-label -->
-                            @foreach($reports as $report)
-                                <!-- timeline item -->
+                        @foreach($reports as $report)
+                            <!-- timeline item -->
                                 <li>
                                     <i class="fa fa-envelope bg-blue"></i>
 
                                     <div class="timeline-item">
-                                        <span class="time"><i class="fa fa-clock-o"></i>{{$report->created_at->format('H:m')}}</span>
+                                        <span class="time"><i
+                                                    class="fa fa-clock-o"></i>{{$report->created_at->format('H:m')}}</span>
 
                                         <h3 class="timeline-header"><a href="#">{{$report->user->name}}</a></h3>
 
@@ -49,15 +50,16 @@
 
                                         </div>
                                         <div class="timeline-footer">
-                                            <a href="{{route('reports.show',$report->id)}}" class="btn btn-primary btn-xs">Detail</a>
+                                            <a href="{{route('reports.show',$report->id)}}"
+                                               class="btn btn-primary btn-xs">Detail</a>
                                         </div>
                                     </div>
                                 </li>
                                 <!-- END timeline item -->
                                 <!-- timeline item -->
                             @endforeach
-                            @endforeach
-                     </ul>
+                        @endforeach
+                    </ul>
                 </div>
                 <!-- /.col -->
             </div>

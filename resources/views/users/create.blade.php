@@ -44,7 +44,7 @@
                                     <input type="text" class="form-control" name="name" placeholder="Enter full name">
                                     @if ($errors->has('name'))
                                         <span class="has-feedback">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{$errors->first('name') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -68,7 +68,8 @@
                                 </div>
                                 <div class="form-group {{  $errors->has('password_confirmation') ? 'has-error' : ''}}">
                                     <label for="">Re-Password</label>
-                                    <input type="password" class="form-control" name="password_confirmation" placeholder="Password">
+                                    <input type="password" class="form-control" name="password_confirmation"
+                                           placeholder="Password">
                                     @if ($errors->has('password_confirmation'))
                                         <span class="has-feedback">
                                         <strong>{{ $errors->first('password_confirmation') }}</strong>
@@ -76,9 +77,11 @@
                                     @endif
                                 </div>
 
-                                <div class="form-group {{  $errors->has('address') ? 'has-error' : ''}}" id="locationField">
+                                <div class="form-group {{  $errors->has('address') ? 'has-error' : ''}}"
+                                     id="locationField">
                                     <label for="address">Address:</label>
-                                    <input id="autocomplete" name="address" class="form-control" placeholder="Enter your address"
+                                    <input id="autocomplete" name="address" class="form-control"
+                                           placeholder="Enter your address"
                                            onFocus="geolocate()" type="text">
                                     @if ($errors->has('address'))
                                         <span class="has-feedback">
@@ -95,7 +98,7 @@
                                         <strong>{{ $errors->first('birthday') }}</strong>
                                     </span>
                                 @endif
-                                    <!-- /.input group -->
+                                <!-- /.input group -->
                                 </div>
                                 <!-- /.form group -->
                             </div>

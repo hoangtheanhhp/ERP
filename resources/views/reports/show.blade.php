@@ -27,15 +27,18 @@
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="today">Today</label>
-                                <textarea class="form-control" rows="3" name="today_do" disabled>{{$report->today_do}}</textarea>
+                                <textarea class="form-control" rows="3" name="today_do"
+                                          disabled>{{$report->today_do}}</textarea>
                             </div>
                             <div class="form-group">
                                 <label for="tomorrow">Tomorrow</label>
-                                <textarea class="form-control" rows="3" name="tomorrow_do" disabled>{{$report->tomorrow_do}}</textarea>
+                                <textarea class="form-control" rows="3" name="tomorrow_do"
+                                          disabled>{{$report->tomorrow_do}}</textarea>
                             </div>
                             <div class="form-group">
                                 <label for="problems">Problems</label>
-                                <textarea class="form-control" rows="3" name="problems" disabled>{{$report->problems}}</textarea>
+                                <textarea class="form-control" rows="3" name="problems"
+                                          disabled>{{$report->problems}}</textarea>
                             </div>
                         </div>
                         <div class="box-footer">

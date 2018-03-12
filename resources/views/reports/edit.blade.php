@@ -25,13 +25,14 @@
                             <h3 class="box-title">Edit Report</h3>
                         </div>
 
-                        <form role="form" action="{{route('reports.store')}}" method="POST">
+                        <form role="form" action="{{route('reports.update')}}" method="POST">
                             {{ csrf_field() }}
                             {{ csrf_method('PUT') }}
                             <div class="box-body">
                                 <div class="form-group {{  $errors->has('today_do') ? 'has-error' : ''}}">
                                     <label for="today">Today</label>
-                                    <textarea class="form-control" rows="3" name="today_do">{{old('today_do')}}</textarea>
+                                    <textarea class="form-control" rows="3"
+                                              name="today_do">{{old('today_do')}}</textarea>
                                     @if ($errors->has('today_do'))
                                         <span class="has-feedback">
                                         <strong>{{ $errors->first('today_do') }}</strong>
@@ -40,7 +41,8 @@
                                 </div>
                                 <div class="form-group {{  $errors->has('tomorrow_do') ? 'has-error' : ''}}">
                                     <label for="tomorrow">Tomorrow</label>
-                                    <textarea class="form-control" rows="3" name="tomorrow_do">{{old('tomorrow_do')}}</textarea>
+                                    <textarea class="form-control" rows="3"
+                                              name="tomorrow_do">{{old('tomorrow_do')}}</textarea>
                                     @if ($errors->has('tomorrow_do'))
                                         <span class="has-feedback">
                                         <strong>{{ $errors->first('tomorrow_do') }}</strong>
@@ -49,7 +51,8 @@
                                 </div>
                                 <div class="form-group {{  $errors->has('problems') ? 'has-error' : ''}}">
                                     <label for="problems">Problems</label>
-                                    <textarea class="form-control" rows="3" name="problems">{{old('problems')}}</textarea>
+                                    <textarea class="form-control" rows="3"
+                                              name="problems">{{old('problems')}}</textarea>
                                     @if ($errors->has('problems'))
                                         <span class="has-feedback">
                                         <strong>{{ $errors->first('problems') }}</strong>

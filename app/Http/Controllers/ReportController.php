@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateReportRequest;
+use App\Http\Requests\UpdateReportRequest;
 use Illuminate\Http\Request;
 use App\Models\Report;
 use Carbon\Carbon;
@@ -17,7 +19,7 @@ class ReportController extends Controller
     public function index()
     {
         //
-        $reportTimes = Report::orderBy('created_at','DESC')->get()->groupBy(function($date) {
+        $reportTimes = Report::orderBy('created_at', 'DESC')->get()->groupBy(function ($date) {
             return Carbon::parse($date->created_at)->format('d-m-Y');
         });
         $data = [
@@ -33,20 +35,16 @@ class ReportController extends Controller
      */
     public function create()
     {
-        $timeNow = Carbon::now()->format('d-m-Y');
-        $data = [
-            'timeNow' => $timeNow,
-        ];
-        return view('reports.create',$data);
+        return view('reports.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateReportRequest $request)
     {
         Report::create($request->all());
         return redirect()->route('reports.index');
@@ -55,7 +53,7 @@ class ReportController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -64,42 +62,40 @@ class ReportController extends Controller
         $data = [
             'report' => $report,
         ];
-        return view('reports.show',$data);
+        return view('reports.show', $data);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         $report = Report::findOrFail($id);
-        $timeNow = Carbon::now()->format('d-m-Y');
         $data = [
-            'timeNow' => $timeNow,
             'report' => $report,
         ];
         return view('reports.edit', $data);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
 
+    public function update(UpdateReportRequest $request, $id)
+    {
+        $report = Report::findOrFail($id);
+        $report->update([
+            'today_do' => $request->today_do,
+            'tomorrow_do' => $request->tomorrow_do,
+            'problems' => $request->problems,
+        ]);
+        return redirect()->route('reports.show', $id);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
