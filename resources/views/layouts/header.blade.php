@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="{{asset('bower_components/Ionicons/css/ionicons.min.css')}}">
     <!-- DataTables -->
     <link rel="stylesheet" href="{{asset('bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
+    <!-- Bootstrap time Picker -->
+    <link rel="stylesheet" href="{{ asset('plugins/timepicker/bootstrap-timepicker.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('dist/css/AdminLTE.min.css')}}">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
