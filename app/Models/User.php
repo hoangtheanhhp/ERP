@@ -21,7 +21,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $attributes = [
-        'avatar' => 'storage/default.png',
+        'avatar' => '/storage/default.png',
     ];
     protected $fillable = [
         'name', 'email', 'password', 'birthday', 'address', 'avatar',

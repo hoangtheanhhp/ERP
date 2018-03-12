@@ -24,9 +24,8 @@ Route::middleware('auth')->group(function () {
         Route::get('users/rollcall', 'UserController@rollCall')->name('user.rollcall');
         Route::put('users/uploadavatar/{id}', 'UserController@uploadAvatar')->name('users.upload.avatar');
         Route::resource('users', 'UserController');
-        Route::resource('reports', 'ReportController');
     });
-
+    Route::resource('reports', 'ReportController');
     Route::middleware('department')->prefix('users/department')->namespace('Department')->group(function () {
         Route::get('{id}', 'UserController@show')->name('user.department.show');
 //
