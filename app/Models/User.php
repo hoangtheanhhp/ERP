@@ -3,10 +3,11 @@
 namespace App\Models;
 
 use App\DepartmentRole;
-use App\UserRole;
+use App\Models\UserRole;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Carbon\Carbon;
 
 class User extends Authenticatable
 {
@@ -18,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $attributes = [
-        'avatar' => 'default.png',
+        'avatar' => 'storage/default.png',
     ];
     protected $fillable = [
         'name', 'email', 'password', 'birthday', 'address', 'avatar',
@@ -36,6 +37,13 @@ class User extends Authenticatable
     protected $dates = [
         'birthday', 'deleted_at',
     ];
+
+    //This method automatically fetch date d-m-Y format from database
+
+    public function getBirthdayAttribute($date)
+    {
+        return Carbon::createFromFormat('Y-m-d', $date)->format('d-m-Y');
+    }
 
     public function absences()
     {
@@ -64,6 +72,6 @@ class User extends Authenticatable
 
     public function departments()
     {
-        return $this->belongsToMany(Department::class,'user_roles');
+        return $this->belongsToMany(Department::class, 'user_roles');
     }
 }
