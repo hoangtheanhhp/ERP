@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Carbon\Carbon;
 
 class ReportOT extends Model
 {
@@ -15,6 +16,16 @@ class ReportOT extends Model
     protected $dates = [
         'deleted_at', 'starts_at', 'ends_at',
     ];
+
+    public function getStartsAtAttribute($date)
+    {
+        return Carbon::createFromFormat('Y-m-d H:i', $date)->format('d-m-Y H:i');
+    }
+
+    public function getEndsAtAttribute($date)
+    {
+        return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('d-m-Y H:i');
+    }
 
     public function user()
     {

@@ -27,6 +27,7 @@
                             <th>From</th>
                             <th>To</th>
                             <th>Contents</th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -36,10 +37,17 @@
                             <td>{{$reportot->starts_at}}</td>
                             <td>{{$reportot->ends_at}}</td>
                             <td>{{$reportot->contents}}</td>
+                            <td><a href="{{ route('reportots.show', $reportot->id) }}" class="btn btn-sm btn-success" >Show</a>
+                            <a href="{{ route('reportots.edit', $reportot->id) }}" class="btn btn-sm btn-primary" {{ (Auth::id() == $reportot->user_id) ? '':'disabled' }}>Edit</a>
+                            <button onclick="submit('formDel')" class="btn btn-sm btn-danger" {{ (Auth::id() == $reportot->user_id) ? '':'disabled' }}>Del</button></td>
                         </tr>
                         @endforeach
                         </tbody>
                     </table>
+                    <div class="hidden">
+                        {{ Form::open(['id' => 'formDel', 'method' => 'DELETE', 'route' => ['reportots.destroy', $reportot->id]]) }}
+                        {{ Form::close() }}
+                    </div>
                 </div>
                 <!-- /.col -->
             </div>
@@ -49,4 +57,9 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+    <script>
+        function submit(formId) {
+            document.getElementById(formId).submit();
+        }
+    </script>
 @endsection

@@ -33,7 +33,7 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ route('user.rollcall') }}"><i class="fa fa-circle-o"></i> Roll Call</a></li>
+                    <li><a href="{{ route('users.rollcall') }}"><i class="fa fa-circle-o"></i> Roll Call</a></li>
                 </ul>
             </li>
             @foreach( $user_roles as $user_role)

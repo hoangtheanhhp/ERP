@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class UserRole extends Model
 {
@@ -14,4 +15,5 @@ class UserRole extends Model
     protected $fillable = [
         'user_id', 'department_id', 'create', 'read', 'update', 'delete',
     ];
+
 }

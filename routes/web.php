@@ -21,11 +21,13 @@ Auth::routes();
 Route::middleware('auth')->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::namespace('User')->group(function () {
-        Route::get('users/rollcall', 'UserController@rollCall')->name('user.rollcall');
+        Route::get('users/rollcall', 'UserController@rollCall')->name('users.rollcall');
         Route::put('users/uploadavatar/{id}', 'UserController@uploadAvatar')->name('users.upload.avatar');
         Route::resource('users', 'UserController');
     });
     Route::resource('reports', 'ReportController');
+    Route::resource('reportots', 'ReportOTController');
+    Route::resource('absences', 'AbsencesController');
     Route::middleware('department')->prefix('users/department')->namespace('Department')->group(function () {
         Route::get('{id}', 'UserController@show')->name('user.department.show');
 //

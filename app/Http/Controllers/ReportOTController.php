@@ -42,9 +42,9 @@ class ReportOTController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $reportOTs = new ReportOT();
         $reportOTs->starts_at = $request->starts_at;
+        dd($reportOTs);
         $reportOTs->ends_at = $request->end_at;
         $reportOTs->contents = $request->contents;
         $reportOTs->user_id = Auth::id();
