@@ -21,4 +21,5 @@ class Department extends Model
     {
         return $this->belongsToMany(User::class, 'user_roles');
     }
+
 }

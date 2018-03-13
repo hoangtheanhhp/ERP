@@ -5,7 +5,7 @@
         <section class="content-header">
             <h1>
                 Create New Report
-                <small>{{$timeNow}}</small>
+                <small>{{Carbon\Carbon::now()->format('d-m-Y')}}</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>

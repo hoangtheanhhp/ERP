@@ -26,6 +26,8 @@ Route::middleware('auth')->group(function () {
         Route::resource('users', 'UserController',['only'=>['show','edit','update']]);
     });
     Route::resource('reports', 'ReportController');
+    Route::resource('reportots', 'ReportOTController');
+    Route::resource('absences', 'AbsencesController');
     Route::middleware('department')->prefix('users/department')->namespace('Department')->group(function () {
         Route::get('{id}', 'UserController@show')->name('user.department.show');
 //

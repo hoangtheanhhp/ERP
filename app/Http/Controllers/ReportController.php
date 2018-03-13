@@ -23,18 +23,11 @@ class ReportController extends Controller
     public function index()
     {
         //
-        $user_id = Auth::user()->id;
-        $users = User::all();
-        $departments = Department::all();
-        $user_roles = UserRole::where('user_id', $user_id)->get();
         $reportTimes = Report::orderBy('created_at', 'DESC')->get()->groupBy(function ($date) {
             return Carbon::parse($date->created_at)->format('d-m-Y');
         });
         $data = [
             'reportTimes' => $reportTimes,
-            'users' => $users,
-            'departments' => $departments,
-            'user_roles' => $user_roles,
         ];
         return view('reports.index', $data);
     }
@@ -69,16 +62,9 @@ class ReportController extends Controller
      */
     public function show($id)
     {
-        $user_id = Auth::user()->id;
-        $users = User::all();
-        $departments = Department::all();
-        $user_roles = UserRole::where('user_id', $user_id)->get();
         $report = Report::findOrFail($id);
         $data = [
             'report' => $report,
-            'users' => $users,
-            'departments' => $departments,
-            'user_roles' => $user_roles,
         ];
         return view('reports.show', $data);
     }
@@ -91,16 +77,9 @@ class ReportController extends Controller
      */
     public function edit($id)
     {
-        $user_id = Auth::user()->id;
-        $users = User::all();
-        $departments = Department::all();
-        $user_roles = UserRole::where('user_id', $user_id)->get();
         $report = Report::findOrFail($id);
         $data = [
             'report' => $report,
-            'users' => $users,
-            'departments' => $departments,
-            'user_roles' => $user_roles,
         ];
         return view('reports.edit', $data);
     }
