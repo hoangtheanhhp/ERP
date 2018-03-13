@@ -20,10 +20,10 @@ Auth::routes();
 
 Route::middleware('auth')->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
-    Route::namespace('User')->group(function () {
-        Route::get('users/rollcall', 'UserController@rollCall')->name('user.rollcall');
-        Route::put('users/uploadavatar/{id}', 'UserController@uploadAvatar')->name('users.upload.avatar');
-        Route::resource('users', 'UserController');
+    Route::namespace('User')->middleware('ability')->group(function () {
+        Route::get('users/{user}/rollcall', 'UserController@rollCall')->name('users.rollcall');
+        Route::put('users/{user}/uploadavatar', 'UserController@uploadAvatar')->name('users.upload.avatar');
+        Route::resource('users', 'UserController',['only'=>['show','edit','update']]);
     });
     Route::resource('reports', 'ReportController');
     Route::middleware('department')->prefix('users/department')->namespace('Department')->group(function () {

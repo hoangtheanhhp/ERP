@@ -24,11 +24,10 @@ class UpdateUserRequest extends FormRequest
      */
     public function rules()
     {
-//        dd($this->route()->parameter('user'));
         return [
-            //
             'name' => 'required|regex: /^[\p{L}\s\'.-]+$/',
             'email' => 'required|unique:users,email,'.$this->route()->parameter('user'),
+            'password' => 'required|string|min:6|confirmed',
             'birthday' => 'required|date|before:now',
             'address' => 'required|max:255',
         ];

@@ -33,7 +33,9 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ route('user.rollcall') }}"><i class="fa fa-circle-o"></i> Roll Call</a></li>
+                    <li><a href="{{ route('users.show', Auth::user()->id) }}"><i class="fa fa-circle-o"></i> Show</a></li>
+                    <li><a href="{{ route('users.edit', Auth::user()->id) }}"><i class="fa fa-circle-o"></i> Edit</a></li>
+                    <li><a href="{{ route('users.rollcall', Auth::user()->id) }}"><i class="fa fa-circle-o"></i> Roll Call</a></li>
                 </ul>
             </li>
             @foreach( $user_roles as $user_role)
@@ -41,7 +43,12 @@
                     @if( $user_role->department_id == $department->id )
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-dashboard"></i> <span>{{ 'Department_'.$department->name }}</span>
+                                <i class="fa fa-dashboard"></i>
+                                @if($department->id==1)
+                                    <span>{{ $department->name }}</span>
+                                @else
+                                    <span>{{ 'Department_'.$department->name }}</span>
+                                @endif
                                 <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                                 </span>

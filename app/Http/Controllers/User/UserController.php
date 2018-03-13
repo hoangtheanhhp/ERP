@@ -33,22 +33,29 @@ class UserController extends Controller
 
     public function create()
     {
-        return view('users.create');
+        $id = Auth::user()->id;
+        $users = User::all();
+        $departments = Department::all();
+        $user_roles = UserRole::where('user_id', $id)->get();
+        $data = [
+            'users' => $users,
+            'departments' => $departments,
+            'user_roles' => $user_roles,
+        ];
+        return view('users.create', $data);
     }
 
     public function store(NewUserRequest $request)
     {
         User::create($request->all());
-        dd($request->errors);
         return redirect()->route('users.index');
     }
 
     public function show($id)
     {
         $user = User::findOrFail($id);
-        $id = Auth::user()->id;
         $departments = Department::all();
-        $user_roles = UserRole::where('user_id', $id)->get();
+        $user_roles = UserRole::where('user_id', $user->id)->get();
         $data = [
             'user' => $user,
             'departments' => $departments,
@@ -60,7 +67,13 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id);
-        return view('users.edit', ['user' => $user]);
+        $departments = Department::all();
+        $user_roles = UserRole::where('user_id', $user->id)->get();
+        $data = [
+            'user' => $user,
+            'departments' => $departments,
+            'user_roles' => $user_roles,
+        ];        return view('users.edit',$data);
     }
 
     public function update(UpdateUserRequest $request, $id)
@@ -69,6 +82,7 @@ class UserController extends Controller
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
+            'password'=> $request->password,
             'address' => $request->address,
             'birthday' => $request->birthday,
         ]);

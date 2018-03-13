@@ -55,28 +55,37 @@
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
-                            <strong><i class="fa fa-book margin-r-5"></i> Education</strong>
+                            <strong><i class="fa fa-book margin-r-5"></i> Email</strong>
 
                             <p class="text-muted">
-                                B.S. in Computer Science from the University of Tennessee at Knoxville
+                                {{ Auth::user()->email }}
                             </p>
 
                             <hr>
 
-                            <strong><i class="fa fa-map-marker margin-r-5"></i> Location</strong>
+                            <strong><i class="fa fa-map-marker margin-r-5"></i> Birthday</strong>
 
-                            <p class="text-muted">Malibu, California</p>
+                            <p class="text-muted">{{ Auth::user()->birthday }}</p>
 
                             <hr>
 
-                            <strong><i class="fa fa-pencil margin-r-5"></i> Skills</strong>
+                            <strong><i class="fa fa-map-marker margin-r-5"></i> Address</strong>
+
+                            <p class="text-muted">{{ Auth::user()->address }}</p>
+
+                            <hr>
+
+                            <strong><i class="fa fa-pencil margin-r-5"></i> Department</strong>
 
                             <p>
-                                <span class="label label-danger">UI Design</span>
-                                <span class="label label-success">Coding</span>
-                                <span class="label label-info">Javascript</span>
-                                <span class="label label-warning">PHP</span>
-                                <span class="label label-primary">Node.js</span>
+                                @foreach( $user_roles as $user_role)
+                                    @foreach( $departments as $department)
+                                        @if( $user_role->department_id == $department->id )
+                                            <span class="label label-primary">{{ $department->name }}</span>
+                                        @endif
+                                    @endforeach
+                                @endforeach
+
                             </p>
 
                             <hr>

@@ -235,11 +235,11 @@
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-                            <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                            <img src="{{ Auth::user()->avatar }}" class="img-circle" alt="User Image">
 
                             <p>
                                 {{ Auth::user()->name }}
-                                <small>Member since Nov. 2012</small>
+                                <small>Member since {{ Auth::user()->created_at->format('d.F.Y') }}</small>
                             </p>
                         </li>
                         <!-- Menu Body -->
@@ -260,7 +260,7 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                <a href="{{ route('users.show', Auth::id()) }}" class="btn btn-default btn-flat">Profile</a>
                             </div>
                             <div class="pull-right">
                                 <a href="#" class="btn btn-default btn-flat">Sign out</a>
