@@ -22,7 +22,6 @@ class ReportController extends Controller
      */
     public function index()
     {
-        //
         $reportTimes = Report::orderBy('created_at', 'DESC')->get()->groupBy(function ($date) {
             return Carbon::parse($date->created_at)->format('d-m-Y');
         });
