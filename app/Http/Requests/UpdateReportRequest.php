@@ -25,7 +25,7 @@ class UpdateReportRequest extends FormRequest
     {
         return [
             'today_do' => 'required',
-            'tomorrow_do' => 'required|after:today_do',
+            'tomorrow_do' => 'required',
             'problems' => 'required',
         ];
     }

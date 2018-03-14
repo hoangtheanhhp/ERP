@@ -50,7 +50,12 @@ class ReportController extends Controller
      */
     public function store(CreateReportRequest $request)
     {
-        Report::create($request->all());
+        $report = new Report();
+        $report->today_do = $request->today_do;
+        $report->tomorrow_do = $request->tomorrow_do;
+        $report->problems = $request->problems;
+        $report->user_id = Auth::id();
+        $report->save();
         return redirect()->route('reports.index');
     }
 
