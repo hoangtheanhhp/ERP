@@ -87,7 +87,8 @@
 <script src="{{asset('bower_components/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
 <!-- bootstrap datepicker -->
 <script src="{{asset('bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
-<link rel="stylesheet" href="{{ asset('plugins/timepicker/bootstrap-timepicker.min.css') }}">
+<!-- bootstrap time picker -->
+<script src="{{ asset('plugins/timepicker/bootstrap-timepicker.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('dist/js/adminlte.min.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
@@ -95,7 +96,6 @@
 <!-- page script -->
 <script>
     $(function () {
-        $('#example1').DataTable();
         $('#example2').DataTable({
             'paging'      : true,
             'lengthChange': false,
@@ -104,7 +104,14 @@
             'info'        : true,
             'autoWidth'   : false
         });
+      //Timepicker
+          $('.timepicker').timepicker({
+            showInputs: false
+          });
     });
+    function submit(formId) {
+      document.getElementById(formId).submit();
+    }
 </script>
 </body>
 </html>

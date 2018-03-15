@@ -41,7 +41,7 @@
                                           disabled>{{$report->problems}}</textarea>
                             </div>
                         </div>
-                        <div class="box-footer">
+                        <div class="box-footer {{ Auth::id() != $report->user_id ? 'hidden' : '' }}">
                             <a href="{{route('reports.edit', $report->id)}}" class="btn btn-primary">Edit</a>
                             <button class="btn btn-danger" onclick="submit('formDel')">Del</button>
                         </div>
@@ -57,10 +57,6 @@
         </section>
         <!-- /.content -->
     </div>
-    <script>
-        function submit(formId) {
-            document.getElementById(formId).submit();
-        }
-    </script>
+
     <!-- /.content-wrapper -->
 @endsection

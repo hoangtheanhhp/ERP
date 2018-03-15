@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateReportRequest extends FormRequest
+class CreateReportOTRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,9 @@ class UpdateReportRequest extends FormRequest
     public function rules()
     {
         return [
-            'today_do' => 'required',
-            'tomorrow_do' => 'required',
-            'problems' => 'required',
+            "starts_at" => 'required',
+            "ends_at" => 'required|after:starts_time',
+            "contents" => 'required',
         ];
     }
 }

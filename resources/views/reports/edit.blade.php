@@ -5,7 +5,7 @@
         <section class="content-header">
             <h1>
                 Edit Report
-                <small>{{$timeNow}}</small>
+                <small>{{\Carbon\Carbon::now()->format('d-m-Y')}}</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -25,9 +25,9 @@
                             <h3 class="box-title">Edit Report</h3>
                         </div>
 
-                        <form role="form" action="{{route('reports.update')}}" method="POST">
+                        <form role="form" action="{{route('reports.update', $report->id)}}" method="POST">
                             {{ csrf_field() }}
-                            {{ csrf_method('PUT') }}
+                            {{ method_field('PUT') }}
                             <div class="box-body">
                                 <div class="form-group {{  $errors->has('today_do') ? 'has-error' : ''}}">
                                     <label for="today">Today</label>

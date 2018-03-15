@@ -17,9 +17,19 @@ class ReportOT extends Model
         'deleted_at', 'starts_at', 'ends_at',
     ];
 
+    public function setStartsAtAttribute($data)
+    {
+        $this->attributes['starts_at'] = Carbon::parse($data)->format('Y-m-d H:i:s');
+    }
+
+    public function setEndsAtAttribute($data)
+    {
+        $this->attributes['ends_at'] = Carbon::parse($data)->format('Y-m-d H:i:s');
+    }
+
     public function getStartsAtAttribute($date)
     {
-        return Carbon::createFromFormat('Y-m-d H:i', $date)->format('d-m-Y H:i');
+        return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('d-m-Y H:i');
     }
 
     public function getEndsAtAttribute($date)

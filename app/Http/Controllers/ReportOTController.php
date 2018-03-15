@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateReportOTRequest;
+use App\Http\Requests\UpdateReportRequest;
 use App\Models\ReportOT;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class ReportOTController extends Controller
 {
@@ -16,7 +19,7 @@ class ReportOTController extends Controller
     public function index()
     {
         //
-        $reportots = ReportOT::all();
+        $reportots = ReportOT::orderBy('starts_at','DESC')->paginate(10);
         $data = [
             'reportots' => $reportots,
         ];
@@ -40,12 +43,11 @@ class ReportOTController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateReportOTRequest $request)
     {
         $reportOTs = new ReportOT();
         $reportOTs->starts_at = $request->starts_at;
-        dd($reportOTs);
-        $reportOTs->ends_at = $request->end_at;
+        $reportOTs->ends_at = $request->ends_at;
         $reportOTs->contents = $request->contents;
         $reportOTs->user_id = Auth::id();
         $reportOTs->save();
@@ -76,7 +78,11 @@ class ReportOTController extends Controller
      */
     public function edit($id)
     {
-        //
+        $reportOT = ReportOT::findOrFail($id);
+        $data = [
+            'reportOT' => $reportOT,
+        ];
+        return view('reportots.edit', $data);
     }
 
     /**
@@ -86,9 +92,16 @@ class ReportOTController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateReportOTRequest $request, $id)
     {
-        //
+        $reportOT = ReportOT::findOrFail($id);
+        $reportOT->update([
+            'starts_at' => $request->starts_at,
+            'ends_at' => $request->ends_at,
+            'contents' => $request->contents,
+            'user_id' => Auth::id(),
+        ]);
+        return redirect()->route('reportots.show', $id);
     }
 
     /**

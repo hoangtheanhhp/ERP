@@ -96,6 +96,7 @@ class ReportController extends Controller
             'today_do' => $request->today_do,
             'tomorrow_do' => $request->tomorrow_do,
             'problems' => $request->problems,
+            'user_id' => Auth::id()
         ]);
         return redirect()->route('reports.show', $id);
     }

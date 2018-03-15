@@ -15,7 +15,6 @@ class DatabaseSeeder extends Seeder
             AbsencesTableSeeder::class,
             AdminsTableSeeder::class,
             HolidaysTableSeeder::class,
-            ReportOTsTableSeeder::class,
             UsersTableSeeder::class,
             ReportsTableSeeder::class,
             RollCallsTableSeeder::class,
