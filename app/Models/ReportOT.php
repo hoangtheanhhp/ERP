@@ -19,7 +19,7 @@ class ReportOT extends Model
 
     public function getStartsAtAttribute($date)
     {
-        return Carbon::createFromFormat('Y-m-d H:i', $date)->format('d-m-Y H:i');
+        return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('d-m-Y H:i');
     }
 
     public function getEndsAtAttribute($date)
