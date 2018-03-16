@@ -16,7 +16,7 @@ class AbsenceController extends Controller
      */
     public function index()
     {
-        $absences = Absence::orderBy('created_at','DESC')->paginate(10);
+        $absences = Absence::orderBy('created_at','DESC')->paginate();
         $data = [
           'absences' => $absences,
         ];
