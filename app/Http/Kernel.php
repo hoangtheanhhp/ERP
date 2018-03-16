@@ -66,6 +66,7 @@ class Kernel extends HttpKernel
         'update' => \App\Http\Middleware\User\CheckUpdate::class,
         'read' => \App\Http\Middleware\User\CheckRead::class,
         'delete' => \App\Http\Middleware\User\CheckDelete::class,
-        'ability' => \App\Http\Middleware\User\Ability::class,
+        'ability' => \App\Http\Middleware\User\Ability::class, 
+        'admin' => \App\Http\Middleware\AdminAuthenticate::class,
     ];
 }

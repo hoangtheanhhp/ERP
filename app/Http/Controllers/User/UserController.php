@@ -73,7 +73,8 @@ class UserController extends Controller
             'user' => $user,
             'departments' => $departments,
             'user_roles' => $user_roles,
-        ];        return view('users.edit',$data);
+        ];
+        return view('users.edit', $data);
     }
 
     public function update(UpdateUserRequest $request, $id)

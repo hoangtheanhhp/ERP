@@ -17,13 +17,18 @@ Route::get('/', function () {
 
 
 Auth::routes();
-
+Route::prefix('admin')->group(function () {
+    Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+    Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+    Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
+    Route::get('/', 'AdminController@index')->name('admins.index');
+}) ;
 Route::middleware('auth')->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::namespace('User')->middleware('ability')->group(function () {
         Route::get('users/{user}/rollcall', 'UserController@rollCall')->name('users.rollcall');
         Route::put('users/{user}/uploadavatar', 'UserController@uploadAvatar')->name('users.upload.avatar');
-        Route::resource('users', 'UserController',['only'=>['show','edit','update']]);
+        Route::resource('users', 'UserController', ['only'=>['show','edit','update']]);
     });
     Route::resource('reports', 'ReportController');
     Route::resource('reportots', 'ReportOTController');
