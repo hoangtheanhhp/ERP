@@ -17,11 +17,14 @@ Route::get('/', function () {
 
 
 Auth::routes();
-Route::prefix('admin')->group(function () {
-    Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
-    Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
-    Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
-    Route::get('/', 'AdminController@index')->name('admins.index');
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+    Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('login');
+    Route::post('/login', 'Auth\AdminLoginController@login')->name('login.submit');
+    Route::get('/logout', 'Auth\AdminLoginController@logout')->name('logout');
+    Route::middleware('admin')->group(function () {
+        Route::get('/', 'AdminController@index')->name('admins.index');
+        Route::resource('/users','Admin\UserController');
+    });
 }) ;
 Route::middleware('auth')->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
@@ -46,7 +49,7 @@ Route::middleware('auth')->group(function () {
         });
 //
         Route::middleware('delete')->group(function () {
-            Route::get('{id}/delete', 'UserController@delete')->name('users.department.delete');
+            Route::get('{id}/delete', 'UserController@delete')->name('users.deparphptment.delete');
         });
 //
         Route::middleware('read')->group(function () {

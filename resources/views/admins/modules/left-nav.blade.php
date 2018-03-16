@@ -24,18 +24,16 @@
         <!-- /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
-            <li class="header">User</li>
+            <li class="header">Admin</li>
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-dashboard"></i> <span>Ability</span>
+                    <i class="fa fa-dashboard"></i> <span>User Manager</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ route('users.show', Auth::guard('admin')->user()->id) }}"><i class="fa fa-circle-o"></i> Show</a></li>
-                    <li><a href="{{ route('users.edit', Auth::guard('admin')->user()->id) }}"><i class="fa fa-circle-o"></i> Edit</a></li>
-                    <li><a href="{{ route('users.rollcall', Auth::guard('admin')->user()->id) }}"><i class="fa fa-circle-o"></i> Roll Call</a></li>
+                    <li><a href="{{ route('admin.users.index') }}"><i class="fa fa-circle-o"></i> Index</a></li>
                 </ul>
             </li>
            
