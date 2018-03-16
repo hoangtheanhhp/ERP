@@ -19,11 +19,11 @@
             <!-- row -->
             <div class="row">
                 <div class="col-md-12">
-                    @if ( $check)
+                    @if ( $check )
                         <div class="alert alert-success"> You checked in </div>
                     @else
-                        <div class="alert-warning"> You checked in
-                        <button onclick="submit('formStore')" class="btn btn-primary" >Check</button>
+                        <div class="alert alert-warning"> You do not check in
+                            <button onclick="submit('formStore')" class="btn btn-link" >Check now</button>
                         </div>
                     @endif
                 </div>

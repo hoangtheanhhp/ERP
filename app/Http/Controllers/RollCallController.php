@@ -14,13 +14,13 @@ class RollCallController extends Controller
     public function index()
     {
         $rollcall = RollCall::where('user_id',Auth::id())->whereDate('created_at', DB::raw('CURDATE()'))->get();
-        if ( !empty($rollcall) ) {
-            $check = true;
+        if ( $rollcall->isEmpty() ) {
+            $check = false;
         } else
         {
-            $check = false;
+            $check = true;
         }
-        $rollcalls = RollCall::orderBy('created_at','DESC')->paginate(10);
+        $rollcalls = RollCall::orderBy('created_at','DESC')->paginate();
         $data = [
             'rollcalls' => $rollcalls,
             'check' => $check,
@@ -31,7 +31,7 @@ class RollCallController extends Controller
     public function store(Request $request)
     {
         $rollcall = RollCall::where('user_id',Auth::id())->whereDate('created_at', DB::raw('CURDATE()'))->get();
-        if ( !empty($rollcall) ) return redirect()->route('rollcalls.index');
+        if ( !$rollcall->isEmpty() ) return redirect()->route('rollcalls.index');
         $now = Carbon::now();
         $rollcall = new RollCall();
         $rollcall->user_id = Auth::id();
