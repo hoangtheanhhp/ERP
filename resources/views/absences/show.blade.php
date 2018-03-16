@@ -12,10 +12,8 @@
                 <li><a href="#">Report</a></li>
             </ol>
         </section>
-
         <!-- Main content -->
         <section class="content">
-
             <!-- row -->
             <div class="row">
                 <div class="col-md-offset-3 col-md-6 col-xs-12">
@@ -42,9 +40,7 @@
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </form>
-
                         </div>
-
                     </div>
                     <!-- /.box -->
                 </div>

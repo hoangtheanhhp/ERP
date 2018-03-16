@@ -38,7 +38,7 @@
                                 <input class="form-control" value="{{$reportot->contents}}" disabled>
                             </div>
                         </div>
-                        <div class="box-footer">
+                        <div class="box-footer {{ (Auth::id() == $reportot->user_id) ? '':'hidden' }}">
                             <a href="{{route('reportots.edit', $reportot->id)}}" class="btn btn-primary">Edit</a>
                             <button class="btn btn-danger" onclick="submit('formDel')">Del</button>
                         </div>

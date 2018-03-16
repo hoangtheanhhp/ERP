@@ -5,11 +5,11 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Report
+                Absence
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="#">Report</a></li>
+                <li><a href="#">Absence</a></li>
             </ol>
         </section>
 
@@ -40,6 +40,7 @@
                         </tbody>
                     </table>
                 </div>
+                {{ $absences->links() }}
                 <!-- /.col -->
             </div>
             <!-- /.row -->
