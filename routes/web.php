@@ -24,6 +24,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::middleware('admin')->group(function () {
         Route::get('/', 'AdminController@index')->name('admins.index');
         Route::resource('/users','Admin\UserController');
+        Route::resource('/absences','Admin\AbsenceController', ['only' => ['show', 'index']]);
     });
 }) ;
 Route::middleware('auth')->group(function () {
