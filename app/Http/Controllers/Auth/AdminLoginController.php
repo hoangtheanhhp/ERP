@@ -27,7 +27,7 @@ class AdminLoginController extends Controller
             $request->remember
         )) {
             // if successful, then redirect to their intended location
-            return redirect()->intended(route('admins.index'));
+            return redirect()->intended(route('admin.index'));
         }
         // if unsuccessful, then redirect back to the login with the form data
         return redirect()->back()->withInput($request->only('email', 'remember'));

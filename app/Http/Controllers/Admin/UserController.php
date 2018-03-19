@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Department;
 use App\Models\User;
 use App\Models\UserRole;
+use App\Http\Requests\UpdateUserRequest;
+use App\Http\Requests\NewUserRequest;
 
 
 class UserController extends Controller
@@ -38,7 +40,7 @@ class UserController extends Controller
     public function store(NewUserRequest $request)
     {
         User::create($request->all());
-        return redirect()->route('admins.users.index');
+        return redirect()->route('admin.users.index');
     }
 
     public function show($id)
@@ -78,7 +80,7 @@ class UserController extends Controller
             'birthday' => $request->birthday,
         ]);
         $user->save();
-        return redirect()->route('admins.users.index');
+        return redirect()->route('admin.users.index');
     }
 
     public function destroy($id)
