@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\ReportOT;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -11,9 +13,25 @@ use App\Models\UserRole;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Requests\NewUserRequest;
 
-
 class UserController extends Controller
 {
+
+    public function showReportOTs(Request $request, $id)
+    {
+        $time = Carbon::now()->format('Y-m-d');
+        if ($request) {
+            $time = $request->time;
+        }
+        $reportots = ReportOT::where('user_id', $id)->get();
+        foreach ($reportots as $report) {
+        }
+        $user = User::findOrFail($id);
+        $data = [
+            'reportots' => $reportots,
+            'user' => $user,
+        ];
+        return view('admins.reportots.show', $data);
+    }
     public function index()
     {
         $users = User::all();

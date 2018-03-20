@@ -19,7 +19,7 @@ class ReportOTController extends Controller
     public function index()
     {
         //
-        $reportots = ReportOT::orderBy('starts_at','DESC')->paginate(10);
+        $reportots = ReportOT::orderBy('starts_at', 'DESC')->paginate(10);
         $data = [
             'reportots' => $reportots,
         ];

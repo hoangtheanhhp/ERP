@@ -22,8 +22,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::post('/login', 'Auth\AdminLoginController@login')->name('login.submit');
     Route::get('/logout', 'Auth\AdminLoginController@logout')->name('logout');
     Route::middleware('admin')->group(function () {
-        Route::get('/', 'AdminController@index')->name('admins.index');
-        Route::resource('/users','Admin\UserController');
+        Route::get('/', 'AdminController@index')->name('users.index');
+        Route::resource('/users', 'Admin\UserController');
+        Route::resource('/reportots', 'Admin\ReportOTController', ['only'=>['index','show']]);
+        Route::get('/users/{id}/reportots/', 'Admin\UserController@showReportOTs')->name('users.reportots.show');
     });
 }) ;
 Route::middleware('auth')->group(function () {

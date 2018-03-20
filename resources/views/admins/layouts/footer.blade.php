@@ -2,6 +2,8 @@
 <script src="{{asset('bower_components/jquery/dist/jquery.min.js')}}"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="{{asset('bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+<!-- bootstrap datepicker -->
+<script src="{{ asset('bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
 <!-- DataTables -->
 <script src="{{asset('bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
@@ -24,6 +26,12 @@
             'info'        : true,
             'autoWidth'   : false
         });
+          //Date picker
+          $('#datepicker').datepicker({
+            format: "MM yyyy",
+            startView: "months",
+            minViewMode: "months"
+          });
     });
 </script>
 </body>
