@@ -35,7 +35,7 @@
                 <ul class="treeview-menu">
                     <li><a href="{{ route('users.show', Auth::user()->id) }}"><i class="fa fa-circle-o"></i> Show</a></li>
                     <li><a href="{{ route('users.edit', Auth::user()->id) }}"><i class="fa fa-circle-o"></i> Edit</a></li>
-                    <li><a href="{{ route('users.rollcall', Auth::user()->id) }}"><i class="fa fa-circle-o"></i> Roll Call</a></li>
+                    <li><a href="{{ route('rollcalls.index') }}"><i class="fa fa-circle-o"></i> Roll Call</a></li>
                 </ul>
             </li>
             @foreach( $user_roles as $user_role)

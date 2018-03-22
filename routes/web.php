@@ -36,7 +36,7 @@ Route::middleware('auth')->group(function () {
         Route::put('users/{user}/uploadavatar', 'UserController@uploadAvatar')->name('users.upload.avatar');
         Route::resource('users', 'UserController', ['only'=>['show','edit','update']]);
     });
-    Route::resource('rollcalls', 'RollCallController');
+    Route::resource('rollcalls', 'RollCallController', ['only'=>['store','index']]);
     Route::resource('reports', 'ReportController');
     Route::resource('reportots', 'ReportOTController');
     Route::resource('absences', 'AbsenceController');
