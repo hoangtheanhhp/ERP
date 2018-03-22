@@ -18,11 +18,13 @@ class UserController extends Controller
 
     public function showReportOTs(Request $request, $id)
     {
-        $time = Carbon::now()->format('Y-m-d');
         if ($request) {
             $time = $request->time;
+            $reportots = ReportOT::where('user_id', $id)->whereDate('starts_at', $time)->get();
+        } else
+        {
+            $reportots = ReportOT::where('user_id', $id)->get();
         }
-        $reportots = ReportOT::where('user_id', $id)->whereDate('starts_at', $time)->get();
         foreach ($reportots as $report) {
             $report['time'] = $report->ends_at->diffInHours($report->starts_at);
         }
