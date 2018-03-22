@@ -12,9 +12,8 @@ class AbsenceController extends Controller
 {
     public function index(Request $request)
     {
+        $time = Carbon::now()->format('Y-m-d');
         if ($request) {
-            $time = Carbon::now()->format('Y-m-d');
-        } else {
             $time = $request->time;
         }
         $absence = Absence::whereDate('starts_at', $time)->get();
