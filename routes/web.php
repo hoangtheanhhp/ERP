@@ -24,10 +24,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::middleware('admin')->group(function () {
         Route::get('/', 'AdminController@index')->name('users.index');
         Route::resource('/users', 'Admin\UserController');
-        Route::resource('/reportots', 'Admin\ReportOTController', ['only'=>['index','show']]);
+        Route::resource('/reportots', 'Admin\ReportOTController', ['only' => ['index', 'show']]);
         Route::get('/users/{id}/reportots/', 'Admin\UserController@showReportOTs')->name('users.reportots.show');
+        Route::resource('/absences', 'Admin\AbsenceController', ['only' => ['show', 'index']]);
     });
-}) ;
+});
 Route::middleware('auth')->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::namespace('User')->middleware('ability')->group(function () {
