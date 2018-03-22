@@ -51,7 +51,7 @@ Route::middleware('auth')->group(function () {
         });
 //
         Route::middleware('delete')->group(function () {
-            Route::get('{id}/delete', 'UserController@delete')->name('users.deparphptment.delete');
+            Route::get('{id}/delete', 'UserController@delete')->name('users.department.delete');
         });
 //
         Route::middleware('read')->group(function () {

@@ -26,7 +26,6 @@
                             <form action="{{ route('admin.users.reportots.show',$user->id) }}" method="GET" class="form-inline">
                                 <!-- Date -->
                                 <div class="form-group">
-                                    <label>Date:</label>
                                     <div class="input-group date">
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
@@ -53,7 +52,7 @@
                                         <th>From</th>
                                         <th>To</th>
                                         <th>Content</th>
-                                        <td>Time</td>
+                                        <th>Time</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -62,7 +61,7 @@
                                             <td>{{ $reportot->starts_at }}</td>
                                             <td>{{ $reportot->ends_at }}</td>
                                             <td>{{ $reportot->contents }}</td>
-                                            <td>{{  }}</td>
+                                            <td>{{ $reportot->time }}</td>
                                         </tr>
                                     @endforeach
                                     </tbody>
