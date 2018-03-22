@@ -7,18 +7,18 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+
 class AbsenceController extends Controller
 {
     public function index(Request $request)
     {
         if ($request) {
-           $time = Carbon::now()->format('Y-m-d');
-        } else
-        {
+            $time = Carbon::now()->format('Y-m-d');
+        } else {
             $time = $request->time;
         }
-        $absence = Absence::whereDate('starts_at',$time)->get();
-        $user_absence = Absence::whereDate('starts_at',$time)->with('user')->get();
+        $absence = Absence::whereDate('starts_at', $time)->get();
+        $user_absence = Absence::whereDate('starts_at', $time)->with('user')->get();
         $users = User::all();
         $user_work = collect();
         foreach ($users as $user) {
@@ -32,5 +32,4 @@ class AbsenceController extends Controller
         ];
         return view('admins.absences.index', $data);
     }
-
 }

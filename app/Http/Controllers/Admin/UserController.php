@@ -22,7 +22,7 @@ class UserController extends Controller
         if ($request) {
             $time = $request->time;
         }
-        $reportots = ReportOT::where('user_id', $id)->whereDate('starts_at',$time)->get();
+        $reportots = ReportOT::where('user_id', $id)->whereDate('starts_at', $time)->get();
         foreach ($reportots as $report) {
             $report['time'] = $report->ends_at->diffInHours($report->starts_at);
         }
